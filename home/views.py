@@ -4,6 +4,15 @@ from django.shortcuts import render, get_object_or_404
 
 def home(request):
 
+    user_id = request.session.get('user_id')
+    username = request.session.get('username')
+
+    if user_id and username:
+        print("User ID:", user_id)
+        print("Username:", username)
+    else:
+        print("User data not found in session")
+
     categories=Category.objects.all()
     products=Products.objects.all()
 

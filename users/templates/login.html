@@ -202,7 +202,7 @@
 							<div class="section-title">
 								<h3 class="title">Login</h3>
 							</div>
-							<form method="post" action="{% url 'login' %}">
+							<form id="login-form" method="post" action="{% url 'login' %}">
 								{% csrf_token %}
 							<div class="form-group">
 								<input class="input" type="text" name="username" placeholder="Username">
@@ -319,7 +319,8 @@
 			<!-- /bottom footer -->
 		</footer>
 		<!-- /FOOTER -->
-
+        
+			
 		<!-- jQuery Plugins -->
 		<script src="{% static 'js/jquery.min.js' %}"></script>
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -327,6 +328,5 @@
 		<script src="{% static 'js/nouislider.min.js' %}"></script>
 		<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
 		<script src="{% static 'js/main.js' %}"></script>
-
 	</body>
 </html>

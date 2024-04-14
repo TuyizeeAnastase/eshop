@@ -19,8 +19,8 @@ from django.urls import path,include
 from cart import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('users/',include('users.urls')),
+    path('shop/',include('cart.urls')),
     path('',include('home.urls')),
-    path('cart/',include('cart.urls'))
 ]

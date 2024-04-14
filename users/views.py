@@ -5,13 +5,17 @@ from django.contrib.auth import authenticate,login
 from django.contrib import messages
 
 # Create your views here.
-def login(request):
+def user_login(request):
     if request.method == 'POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
         user=authenticate(request,username=username,password=password)
         if user is not None:
-            # login(request,user)
+            login(request,user)
+            # data = User.objects.filter(username=user).all().values()
+            # print(data)
+            request.session['user_id'] = user.id
+            request.session['username'] = user.username
             return redirect('home')
         else:
             messages.error(request,'Invalid username or password')
